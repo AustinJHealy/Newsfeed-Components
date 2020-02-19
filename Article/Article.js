@@ -87,7 +87,36 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
+let createComponent = function(data) {
+  const articleDiv = document.createElement(div);
+  const articleTitle = document.createElement(h2);
+  const articleDate = document.createElement(p);
+  const articleTextFirst = document.createElement(p);
+  const articleTextSecond = document.createElement(p);
+  const articleTextThird = document.createElement(p);
+  const expandButton = document.createElement(span);
 
+  articlesContainer.classList.add(`article-open`);
+  articleDiv.classList.add(`article`);
+  articleDate.classList.add(`date`);
+  expandButton.classList.add(`expand-button`);
+  
+  expandButton.addEventListener(`click`, () => { 
+   articlesContainer.classList.toggle(`article-open`);
+  });
+  
+  const articlesContainer= document.querySelector(`.articles`);
+  
+  articlesContainer.appendChild(articleDiv);
+  articleDiv.appendChild(articleTitle);
+  articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(articleTextFirst);
+  articleDiv.appendChild(articleTextSecond);
+  articleDiv.appendChild(articleTextThird);
+  articleDiv.appendChild(expandButton);
+
+  return createComponent;
+}
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
