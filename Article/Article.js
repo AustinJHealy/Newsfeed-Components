@@ -117,8 +117,7 @@ let createComponent = function(dataTitle, dataDate, dataFirst, dataSecond, dataT
 
   const articlesContainer= document.querySelector(`.articles`);
   
-  
-  articleDiv.classList.add("article-open");
+
   articleDiv.classList.add(`article`);
   articleDate.classList.add(`date`);
   expandButton.classList.add(`expandButton`);
