@@ -16,8 +16,9 @@ const menuComponent = (menuItems) => {
   const menuUnorderedList = document.createElement("ul");
 
 let menuItemsArray= [];
-  for (let i=0; i< menuItems.length-1; i++){
+  for (let i=0; i< menuItems.length; i++){
     menuItemsText= Object.values(menuItems);
+    
     menuItemsArray[i]= document.createElement("li");
     menuItemsArray[i].textContent = menuItemsText[i];
     menuUnorderedList.appendChild(menuItemsArray[i]);

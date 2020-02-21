@@ -118,13 +118,13 @@ let createComponent = function(dataTitle, dataDate, dataFirst, dataSecond, dataT
   const articlesContainer= document.querySelector(`.articles`);
   
   
-  articlesContainer.classList.add("article-open");
+  articleDiv.classList.add("article-open");
   articleDiv.classList.add(`article`);
   articleDate.classList.add(`date`);
-  expandButton.classList.add(`expand-button`);
+  expandButton.classList.add(`expandButton`);
   
-  expandButton.addEventListener(`click`, () => { 
-   articlesContainer.classList.toggle(`article-open`);
+  expandButton.addEventListener(`click`, (event) => { 
+   articleDiv.classList.toggle(`article-open`);
   });
   
  
@@ -143,7 +143,7 @@ let createComponent = function(dataTitle, dataDate, dataFirst, dataSecond, dataT
     articleTextFirst.textContent = dataFirst;
     articleTextSecond.textContent = dataSecond;
     articleTextThird.textContent = dataThird;
-
+    expandButton.textContent = `Close`;
   return createComponent;
 
 }
