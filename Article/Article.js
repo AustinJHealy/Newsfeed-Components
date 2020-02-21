@@ -85,18 +85,40 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
-];
-let createComponent = function(data) {
-  const articleDiv = document.createElement(div);
-  const articleTitle = document.createElement(h2);
-  const articleDate = document.createElement(p);
-  const articleTextFirst = document.createElement(p);
-  const articleTextSecond = document.createElement(p);
-  const articleTextThird = document.createElement(p);
-  const expandButton = document.createElement(span);
+  },
+  {
+    title: `What to do when you're stuck on a project that's due today`,
 
-  articlesContainer.classList.add(`article-open`);
+    date: `Feb 20th, 2020`,
+
+    firstParagraph: `The attendant thinks it is some sudden form of religious mania which has seized him. If so, we must look out for squalls, for a strong man with homicidal and religious mania at once might be dangerous. The combination is a dreadful one. At nine o'clock I visited him myself. His attitude to me was the same as that to the attendant; in his sublime self-feeling the difference between myself and attendant seemed to him as nothing. It looks like religious mania, and he will soon think that he himself is God. These infinitesimal distinctions between man and man are too paltry for an Omnipotent Being. How these madmen give themselves away! The real God taketh heed lest a sparrow fall; but the God created from human vanity sees no difference between an eagle and a sparrow. Oh, if men only knew!`,
+    
+    secondParagraph: `For half an hour or more Renfield kept getting excited in greater and greater degree. I did not pretend to be watching him, but I kept strict observation all the same. All at once that shifty look came into his eyes which we always see when a madman has seized an idea, and with it the shifty movement of the head and back which asylum attendants come to know so well. He became quite quiet, and went and sat on the edge of his bed resignedly, and looked into space with lack-lustre eyes. I thought I would find out if his apathy were real or only assumed, and tried to lead him to talk of his pets, a theme which had never failed to excite his attention. At first he made no reply, but at length said testily:--
+
+    "Bother them all! I don't care a pin about them."`,
+
+    thirdParagraph: `"What?" I said. "You don't mean to tell me you don't care about spiders?" (Spiders at present are his hobby and the note-book is filling up with columns of small figures.) To this he answered enigmatically:--
+    "The bride-maidens rejoice the eyes that wait the coming of the bride; but when the bride draweth nigh, then the maidens shine not to the eyes that are filled."
+
+    He would not explain himself, but remained obstinately seated on his bed all the time I remained with him.`
+  }
+
+];
+let createComponent = function(dataTitle, dataDate, dataFirst, dataSecond, dataThird) {
+
+  const articleDiv = document.createElement("div");
+  const articleTitle = document.createElement("h2");
+  const articleDate = document.createElement("p");
+  const articleTextFirst = document.createElement("p");
+  const articleTextSecond = document.createElement("p");
+  const articleTextThird = document.createElement("p");
+  const expandButton = document.createElement("span");
+  
+
+  const articlesContainer= document.querySelector(`.articles`);
+  
+  
+  articlesContainer.classList.add("article-open");
   articleDiv.classList.add(`article`);
   articleDate.classList.add(`date`);
   expandButton.classList.add(`expand-button`);
@@ -105,7 +127,7 @@ let createComponent = function(data) {
    articlesContainer.classList.toggle(`article-open`);
   });
   
-  const articlesContainer= document.querySelector(`.articles`);
+ 
   
   articlesContainer.appendChild(articleDiv);
   articleDiv.appendChild(articleTitle);
@@ -115,8 +137,34 @@ let createComponent = function(data) {
   articleDiv.appendChild(articleTextThird);
   articleDiv.appendChild(expandButton);
 
+
+    articleTitle.textContent = dataTitle;
+    articleDate.textContent = dataDate;
+    articleTextFirst.textContent = dataFirst;
+    articleTextSecond.textContent = dataSecond;
+    articleTextThird.textContent = dataThird;
+
   return createComponent;
+
 }
+
+const firstArticleDataArray = Object.values(data[0]);
+const secondArticleDataArray = Object.values(data[1]);
+const thirdArticleDataArray = Object.values(data[2]);
+const fourthArticleDataArray = Object.values(data[3]);
+const fifthArticleDataArray = Object.values(data[4]);
+
+
+createComponent(firstArticleDataArray[0], firstArticleDataArray[1], firstArticleDataArray[2], firstArticleDataArray[3], firstArticleDataArray[4]);
+
+createComponent(secondArticleDataArray[0], secondArticleDataArray[1], secondArticleDataArray[2], secondArticleDataArray[3], secondArticleDataArray[4]);
+
+createComponent(thirdArticleDataArray[0], thirdArticleDataArray[1], thirdArticleDataArray[2], thirdArticleDataArray[3], thirdArticleDataArray[4]);
+
+createComponent(fourthArticleDataArray[0], fourthArticleDataArray[1], fourthArticleDataArray[2], fourthArticleDataArray[3], fourthArticleDataArray[4]);
+
+createComponent(fifthArticleDataArray[0], fifthArticleDataArray[1], fifthArticleDataArray[2], fifthArticleDataArray[3], fifthArticleDataArray[4]);
+
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
